@@ -15,7 +15,11 @@
         <td> Adresse </td>
         <td> ID Classe </td>
         <td> Nom classe </td>
-        <td> Opérations </td>
+        <?php
+            if (isset($_SESSION['email']) && $_SESSION['role']=="admin") {
+                echo "<td> Opérations </td>";
+            }
+        ?>
     </tr>
     <?php
         foreach ($lesEtudiants as $unEtudiant) {
@@ -28,12 +32,14 @@
                     <td>" . $unEtudiant['adresse'] . "</td>
                     <td>" . $unEtudiant['idclasse'] . "</td>
                     <td>" . $unEtudiant['classe'] . "</td>";
-            echo "
-            <td>
-                <a href='index.php?page=3&action=sup&idetudiant=".$unEtudiant['idetudiant']."'><img src = 'images/sup.png' height='40' width='40'></a>
-                <a href='index.php?page=3&action=edit&idetudiant=".$unEtudiant['idetudiant']."'><img src = 'images/edit.png' height='40' width='40'></a>
-            </td>
-            ";
+            if (isset($_SESSION['email']) && $_SESSION['role']=="admin") {
+                echo "
+                <td>
+                    <a href='index.php?page=3&action=sup&idetudiant=".$unEtudiant['idetudiant']."'><img src = 'images/sup.png' height='40' width='40'></a>
+                    <a href='index.php?page=3&action=edit&idetudiant=".$unEtudiant['idetudiant']."'><img src = 'images/edit.png' height='40' width='40'></a>
+                </td>
+                ";
+            }
             echo "</tr>";
         }
     ?>

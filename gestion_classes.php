@@ -1,8 +1,9 @@
 <h2> Gestion des classes </h2>
 
 <?php 
+    $unControleur->setTable("classe");
+    
     if (isset($_SESSION['email']) && $_SESSION['role']=="admin") {
-        $unControleur->setTable("classe");
         
         $laClasse = null;
         if (isset($_GET['action']) and isset($_GET['idclasse'])) {
@@ -23,23 +24,26 @@
         require_once("vue/vue_insert_classe.php");
     
         if (isset($_POST["Modifier"])) {
-            $tab = array("nom"=>$_POST['nom'],
-                        "salle"=>$_POST['salle'],
-                        "diplome"=>$_POST['diplome']);
+            $tab = array(
+                "nom"=>$_POST['nom'],
+                "salle"=>$_POST['salle'],
+                "diplome"=>$_POST['diplome']
+            );
             $where = array("idclasse"=> $_GET['idclasse']);
             $unControleur->update($tab, $where);
             header("Location: index.php?page=1");
         }
     
         if (isset($_POST["Valider"])) {
-            $tab = array("nom"=>$_POST['nom'],
-                        "salle"=>$_POST['salle'],
-                        "diplome"=>$_POST['diplome']);
+            $tab = array(
+                "nom"=>$_POST['nom'],
+                "salle"=>$_POST['salle'],
+                "diplome"=>$_POST['diplome']
+            );
             $unControleur->insert($tab);
         }
     }
 
-    $unControleur->setTable("classe");
     if (isset($_POST['Rechercher'])) {
         $mot = $_POST['mot'];
         $like = array("nom", "salle", "diplome");

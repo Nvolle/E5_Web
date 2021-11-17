@@ -12,7 +12,11 @@
         <td> Prénom </td>
         <td> Email </td>
         <td> Téléphone </td>
-        <td> Opérations </td>
+        <?php
+            if (isset($_SESSION['email']) && $_SESSION['role']=="admin") {
+                echo "<td> Opérations </td>";
+            }
+        ?>
     </tr>
     <?php
         foreach ($lesProfesseurs as $unProfesseur) {
@@ -22,12 +26,14 @@
                     <td>" . $unProfesseur['prenom'] . "</td>
                     <td>" . $unProfesseur['email'] . "</td>
                     <td>" . $unProfesseur['tel'] . "</td>";
-            echo "
-            <td>
-                <a href='index.php?page=2&action=sup&idprofesseur=".$unProfesseur['idprofesseur']."'><img src = 'images/sup.png' height='40' width='40'></a>
-                <a href='index.php?page=2&action=edit&idprofesseur=".$unProfesseur['idprofesseur']."'><img src = 'images/edit.png' height='40' width='40'></a>
-            </td>
-            ";
+            if (isset($_SESSION['email']) && $_SESSION['role']=="admin") {
+                echo "
+                <td>
+                    <a href='index.php?page=2&action=sup&idprofesseur=".$unProfesseur['idprofesseur']."'><img src = 'images/sup.png' height='40' width='40'></a>
+                    <a href='index.php?page=2&action=edit&idprofesseur=".$unProfesseur['idprofesseur']."'><img src = 'images/edit.png' height='40' width='40'></a>
+                </td>
+                ";
+            }
             echo "</tr>";
         }
     ?>
