@@ -21,8 +21,8 @@
     </tr>
     <tr>
         <td><?=$nbClasses['nb']?></td>
-        <td><?=$nbEtudiant['nb']?></td>
         <td><?=$nbProfesseur['nb']?></td>
+        <td><?=$nbEtudiant['nb']?></td>
         <td><?=$nbEnseignement['nb']?></td>
     </tr>
 </table>
