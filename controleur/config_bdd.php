@@ -1,6 +1,6 @@
 <?php
     $serveur = "localhost";
-    $bdd = "iris_2022_lm";
+    $bdd = "roille_sa";
     $user = "root";
     $mdp = "";
 ?>

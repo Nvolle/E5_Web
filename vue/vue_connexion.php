@@ -1,14 +1,14 @@
-<h2> Connexion au site de la scolarité d'IRIS </h2>
+<h2> Bienvenue chez Roille SA ! Connectez-vous pour continuer : </h2>
 
 <br/>
 <form action="" method="post">
     <table>
         <tr>
-            <td>Email</td>
-            <td><input type="text" name="email"></td>
+            <td>Identifiant</td>
+            <td><input type="text" name="username"></td>
         </tr>
         <tr>
-            <td>MDP</td>
+            <td>Mot de passe</td>
             <td><input type="password" name="mdp"></td>
         </tr>
         <tr>

@@ -1,28 +1,38 @@
 <?php
-    $unControleur->setTable("classe");
-    $nbClasses = $unControleur->count();
+    $unControleur->setTable("client");
+    $nbClient = $unControleur->count();
 
-    $unControleur->setTable("etudiant");
-    $nbEtudiant = $unControleur->count();
+    $unControleur->setTable("contrat");
+    $nbContrat = $unControleur->count();
     
-    $unControleur->setTable("professeur");
-    $nbProfesseur = $unControleur->count();
+    $unControleur->setTable("facture");
+    $nbFacture = $unControleur->count();
     
-    $unControleur->setTable("enseignement");
-    $nbEnseignement = $unControleur->count();
-?>
+    $unControleur->setTable("location");
+    $nbLocation = $unControleur->count();
+
+    $unControleur->setTable("materiel");
+    $nbMateriel = $unControleur->count();
+
+    $unControleur->setTable("typeMat");
+    $nbTypeMat = $unControleur->count();
+    ?>
 
 <table border="1">
     <tr>
-        <td>NB Classes</td>
-        <td>NB Professeurs</td>
-        <td>NB Etudiants</td>
-        <td>NB Enseignements</td>
+        <td>Nombre de Clients</td>
+        <td>Nombre de Contrats</td>
+        <td>Nombre de Factures</td>
+        <td>Nombre de Locations</td>
+        <td>Nombre de Matériels</td>
+        <td>Types de Matériaux</td>
     </tr>
     <tr>
-        <td><?=$nbClasses['nb']?></td>
-        <td><?=$nbProfesseur['nb']?></td>
-        <td><?=$nbEtudiant['nb']?></td>
-        <td><?=$nbEnseignement['nb']?></td>
+        <td><?=$nbClient['nb']?></td>
+        <td><?=$nbContrat['nb']?></td>
+        <td><?=$nbFacture['nb']?></td>
+        <td><?=$nbLocation['nb']?></td>
+        <td><?=$nbMateriel['nb']?></td>
+        <td><?=$nbTypeMat['nb']?></td>
     </tr>
 </table>
