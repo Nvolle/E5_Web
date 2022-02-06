@@ -54,7 +54,7 @@
 
     if (isset($_POST['Rechercher'])) {
         $mot = $_POST['mot'];
-        $like = array("nom", "adresse", "ville", "cp", "societe", "mail", "tel");
+        $like = array("idC", "nom", "adresse", "ville", "cp", "societe", "mail", "tel");
         $lesClients = $unControleur->selectSearch($like, $mot);
     }else {
         $lesClients = $unControleur->selectAll();

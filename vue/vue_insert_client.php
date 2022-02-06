@@ -1,4 +1,5 @@
-<h2> Insertion d'un client </h2>
+<?php if ($leClient!=null) echo " <h3> Modification d'un client </h3> ";
+    else echo " <h3> Ajout d'un client </h3> ";?>
 
 <form action="" method="post">
     <table>

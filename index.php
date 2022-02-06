@@ -11,7 +11,7 @@
     <title>Roille SA <?php if($_SESSION!=null) echo"- ".($_SESSION['nom']." ".$_SESSION['prenom']) ?></title>
 </head>
 <body>
-    <h1>Besoin de matériels ?</h1>
+    <h1>Besoin de matériels ? Roille SA est là pour vous accompagner !</h1>
 
     <?php
         if (!isset($_SESSION['username'])) {

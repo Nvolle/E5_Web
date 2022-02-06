@@ -1,4 +1,4 @@
-<h2> Bienvenue chez Roille SA ! Connectez-vous pour continuer : </h2>
+<h2> Connectez-vous pour continuer : </h2>
 
 <br/>
 <form action="" method="post">

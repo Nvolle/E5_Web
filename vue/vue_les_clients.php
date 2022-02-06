@@ -1,4 +1,4 @@
-<h2>Liste des classes</h2>
+<h3>Liste des clients</h3>
 
 <form method="post" action="">
     Mot de recherche : <input type="text" name="mot">
@@ -7,6 +7,7 @@
 
 <table border="1">
     <tr>
+        <td> Id</td>
         <td> Nom </td>
         <td> Adresse </td>
         <td> Ville </td>
@@ -23,7 +24,8 @@
     <?php
         foreach ($lesClients as $unClient) {
             echo "<tr>";
-            echo "  <td>" . $unClient['nom'] . "</td>
+            echo "  <td>" . $unClient['idC'] . "</td>
+                    <td>" . $unClient['nom'] . "</td>
                     <td>" . $unClient['adresse'] . "</td>
                     <td>" . $unClient['ville'] . "</td>
                     <td>" . $unClient['cp'] . "</td>

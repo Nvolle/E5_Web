@@ -37,7 +37,7 @@ create table typeMat(
 create table materiel(
 	idM int(5) not null auto_increment,
 	qtM int(3),
-	nom varchar(25),
+	nomM varchar(25),
 	idTM int(4) not null,
 	primary key (idM),
 	foreign key (idTM) references typeMat(idTM)
@@ -66,7 +66,7 @@ insert into contrat values 	(null, "2022-01-17", null, 1),
 insert into facture values 	(null, 80.00, "2022-01-18", 1),
 							(null, 120.00, "2022-01-21", 2);
 insert into typeMat values 	(null, "Outil"),
-							(null, "Matières premières");
+							(null, "Matieres premieres");
 insert into materiel values (null, 2, "Pelle", 1),
 							(null, 3, "Marteau", 1),
 							(null, 5, "Sac de ciment", 2),
