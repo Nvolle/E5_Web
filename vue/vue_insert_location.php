@@ -5,13 +5,27 @@
     <table>
         <tr>
             <td> Id du contrat </td>
-            <td><input type="text" name="idCo" 
-            value="<?php if($laLocation!=null) echo $laLocation['idCo']; ?>"></td>
+            <td>
+                <select name="idCo">
+                    <?php 
+                        foreach ($lesContrats as $unContrat) {
+                            echo "<option value='".$unContrat['idCo']."'>".$unContrat['idCo']."</option>";
+                        }
+                    ?>
+                </select>
+            </td>
         </tr>
         <tr>
-            <td> Id du matériel </td>
-            <td><input type="text" name="idM" 
-            value="<?php if($laLocation!=null) echo $laLocation['idM']; ?>"></td>
+            <td> Matériel </td>
+            <td>
+                <select name="idM">
+                    <?php 
+                        foreach ($lesMateriels as $unMateriel) {
+                            echo "<option value='".$unMateriel['idM']."'>".$unMateriel['nomM']."</option>";
+                        }
+                    ?>
+                </select>
+            </td>
         </tr>
         <tr>
             <td><input type="reset" name="Annuler" value="Annuler"></td>

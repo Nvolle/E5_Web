@@ -2,6 +2,7 @@ drop database if exists roille_sa;
 create database roille_sa;
 use roille_sa;
 
+--Tables--
 create table client(
 	idC int(4) not null auto_increment,
 	nom varchar(25),
@@ -59,6 +60,25 @@ create table user(
     role enum("admin","user"),
     primary key(idU)
 );
+
+--Views--
+create or replace view contrat_client as(
+	select co.idCo, co.datedebut, co.datedefin, co.idC, cl.nom, cl.societe
+	from contrat co
+	join client cl on co.idC=cl.idC
+);
+create or replace view location_materiel as(
+	select l.idL, l.idCo, l.idM, m.qtM, m.nomM
+	from location l
+	join materiel m on m.idM=l.idM
+);
+create or replace view materiel_typeMat as(
+	select m.idM, m.qtM, m.nomM, m.idTM, tm.designation
+	from materiel m
+	join typeMat tm on m.idTM=tm.idTM
+);
+
+--Inserts--
 insert into client values 	(null, "June", "8 rue du Charpentier", "Paris", "75009", "July", "june@july.com", "0610111213"),
 							(null, "Mars", "4 avenue Foret", "Lille", "59000", "Saturne", "mars@saturne.com", "0710111213");
 insert into contrat values 	(null, "2022-01-17", null, 1),

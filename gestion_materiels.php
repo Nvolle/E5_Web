@@ -1,6 +1,8 @@
 <h2> Gestion des Matériels </h2>
 
 <?php 
+    $unControleur->setTable("typeMat");
+    $lesTypeMats = $unControleur->selectAll();
     $unControleur->setTable("materiel");
     
     if (isset($_SESSION['username']) && $_SESSION['role']=="admin") {
@@ -44,9 +46,10 @@
         }
     }
 
+    $unControleur->setTable("materiel_typeMat");
     if (isset($_POST['Rechercher'])) {
         $mot = $_POST['mot'];
-        $like = array("idM", "qtM", "nomM", "idTM");
+        $like = array("idM", "qtM", "nomM", "idTM", "designation");
         $lesMateriels = $unControleur->selectSearch($like, $mot);
     }else {
         $lesMateriels = $unControleur->selectAll();

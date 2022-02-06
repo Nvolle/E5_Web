@@ -4,19 +4,26 @@
 <form action="" method="post">
     <table>
         <tr>
-            <td> Montant </td>
+            <td> Montant (en €) </td>
             <td><input type="text" name="montant" 
             value="<?php if($laFacture!=null) echo $laFacture['montant']; ?>"></td>
         </tr>
         <tr>
             <td> Date </td>
-            <td><input type="text" name="dateF" 
+            <td><input type="date" name="dateF" 
             value="<?php if($laFacture!=null) echo $laFacture['dateF']; ?>"></td>
         </tr>
         <tr>
             <td> Id du contrat </td>
-            <td><input type="text" name="idCo" 
-            value="<?php if($laFacture!=null) echo $laFacture['idCo']; ?>"></td>
+            <td>
+                <select name="idCo">
+                    <?php 
+                        foreach ($lesContrats as $unContrat) {
+                            echo "<option value='".$unContrat['idCo']."'>".$unContrat['idCo']."</option>";
+                        }
+                    ?>
+                </select>
+            </td>
         </tr>
         <tr>
             <td><input type="reset" name="Annuler" value="Annuler"></td>

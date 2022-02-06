@@ -14,9 +14,16 @@
             value="<?php if($leMateriel!=null) echo $leMateriel['nomM']; ?>"></td>
         </tr>
         <tr>
-            <td> Id du type de matériel </td>
-            <td><input type="text" name="idTM" 
-            value="<?php if($leMateriel!=null) echo $leMateriel['idTM']; ?>"></td>
+            <td> Type de matériel </td>
+            <td>
+                <select name="idTM">
+                    <?php 
+                        foreach ($lesTypeMats as $unTypeMat) {
+                            echo "<option value='".$unTypeMat['idTM']."'>".$unTypeMat['designation']."</option>";
+                        }
+                    ?>
+                </select>
+            </td>
         </tr>
         <tr>
             <td><input type="reset" name="Annuler" value="Annuler"></td>

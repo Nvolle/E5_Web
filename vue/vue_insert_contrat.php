@@ -5,18 +5,25 @@
     <table>
         <tr>
             <td> Date de début </td>
-            <td><input type="text" name="datedebut" 
+            <td><input type="date" name="datedebut" 
             value="<?php if($leContrat!=null) echo $leContrat['datedebut']; ?>"></td>
         </tr>
         <tr>
             <td> Date de fin </td>
-            <td><input type="text" name="datedefin" 
+            <td><input type="date" name="datedefin" 
             value="<?php if($leContrat!=null) echo $leContrat['datedefin']; ?>"></td>
         </tr>
         <tr>
-            <td> Id du client </td>
-            <td><input type="text" name="idC" 
-            value="<?php if($leContrat!=null) echo $leContrat['idC']; ?>"></td>
+            <td> Client </td>
+            <td>
+                <select name="idC">
+                    <?php 
+                        foreach ($lesClients as $unClient) {
+                            echo "<option value='".$unClient['idC']."'>".$unClient['nom']." / Société : ".$unClient['societe']."</option>";
+                        }
+                    ?>
+                </select>
+            </td>
         </tr>
         <tr>
             <td><input type="reset" name="Annuler" value="Annuler"></td>

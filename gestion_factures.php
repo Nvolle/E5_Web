@@ -1,6 +1,8 @@
 <h2> Gestion des Factures </h2>
 
 <?php 
+    $unControleur->setTable("contrat");
+    $lesContrats = $unControleur->selectAll();
     $unControleur->setTable("facture");
     
     if (isset($_SESSION['username']) && $_SESSION['role']=="admin") {

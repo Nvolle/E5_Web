@@ -21,7 +21,7 @@
         foreach ($lesFactures as $uneFacture) {
             echo "<tr>";
             echo "  <td>" . $uneFacture['idF'] . "</td>
-                    <td>" . $uneFacture['montant'] . "</td>
+                    <td>" . $uneFacture['montant'] . " €</td>
                     <td>" . $uneFacture['dateF'] . "</td>
                     <td>" . $uneFacture['idCo'] . "</td>
                 ";

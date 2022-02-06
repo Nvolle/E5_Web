@@ -11,6 +11,7 @@
         <td> Quantité </td>
         <td> Nom </td>
         <td> Id du type de matériel </td>
+        <td> Désignation </td>
         <?php
             if (isset($_SESSION['username']) && $_SESSION['role']=="admin") {
                 echo "<td> Opérations </td>";
@@ -24,6 +25,7 @@
                     <td>" . $unMateriel['qtM'] . "</td>
                     <td>" . $unMateriel['nomM'] . "</td>
                     <td>" . $unMateriel['idTM'] . "</td>
+                    <td>" . $unMateriel['designation'] . "</td>
                 ";
             if (isset($_SESSION['username']) && $_SESSION['role']=="admin") {
                 echo "
