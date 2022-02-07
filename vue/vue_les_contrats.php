@@ -13,6 +13,8 @@
         <td> Date de début </td>
         <td> Date de fin </td>
         <td> Id du client </td>
+        <td> Nom du client </td>
+        <td> Société du client </td>
         <?php
             if (isset($_SESSION['username']) && $_SESSION['role']=="admin") {
                 echo "<td> Opérations </td>";
@@ -26,6 +28,8 @@
                     <td>" . $unContrat['datedebut'] . "</td>
                     <td>" . $unContrat['datedefin'] . "</td>
                     <td>" . $unContrat['idC'] . "</td>
+                    <td>" . $unContrat['nom'] . "</td>
+                    <td>" . $unContrat['societe'] . "</td>
                 ";
             if (isset($_SESSION['username']) && $_SESSION['role']=="admin") {
                 echo "

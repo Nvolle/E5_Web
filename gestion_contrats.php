@@ -1,6 +1,8 @@
 <h2> Gestion des Contrats </h2>
 
 <?php 
+    $unControleur->setTable("client");
+    $lesClients = $unControleur->selectAll();
     $unControleur->setTable("contrat");
     
     if (isset($_SESSION['username']) && $_SESSION['role']=="admin") {
@@ -44,6 +46,7 @@
         }
     }
 
+    $unControleur->setTable("contrat_client");
     if (isset($_POST['Rechercher'])) {
         $mot = $_POST['mot'];
         $like = array("idCo", "datedebut", "datedefin", "idC");

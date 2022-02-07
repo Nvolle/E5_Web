@@ -12,6 +12,8 @@
         <td> Id </td>
         <td> Id du contrat </td>
         <td> Id du matériel </td>
+        <td> Quantité </td>
+        <td> Nom du matériel </td>
         <?php
             if (isset($_SESSION['username']) && $_SESSION['role']=="admin") {
                 echo "<td> Opérations </td>";
@@ -24,6 +26,8 @@
             echo "  <td>" . $uneLocation['idL'] . "</td>
                     <td>" . $uneLocation['idCo'] . "</td>
                     <td>" . $uneLocation['idM'] . "</td>
+                    <td>" . $uneLocation['qtM'] . "</td>
+                    <td>" . $uneLocation['nomM'] . "</td>
                 ";
             if (isset($_SESSION['username']) && $_SESSION['role']=="admin") {
                 echo "

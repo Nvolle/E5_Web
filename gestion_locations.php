@@ -1,6 +1,10 @@
 <h2> Gestion des Locations </h2>
 
 <?php 
+    $unControleur->setTable("contrat");
+    $lesContrats = $unControleur->selectAll();
+    $unControleur->setTable("materiel");
+    $lesMateriels = $unControleur->selectAll();
     $unControleur->setTable("location");
     
     if (isset($_SESSION['username']) && $_SESSION['role']=="admin") {
@@ -42,6 +46,7 @@
         }
     }
 
+    $unControleur->setTable("location_materiel");
     if (isset($_POST['Rechercher'])) {
         $mot = $_POST['mot'];
         $like = array("idL", "idCo", "idM");
