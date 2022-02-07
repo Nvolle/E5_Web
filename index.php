@@ -37,12 +37,15 @@
             echo '
                 <a href="index.php?page=home"><img src="images/home.png" height="50" width="50"></a>
                 <a href="index.php?page=exit"><img src="images/deconnexion.png" height="50" width="50"></a><br/>
-                <a href="index.php?page=1">Gestion des clients</a><br/>
-                <a href="index.php?page=2">Gestion des contrats</a><br/>
-                <a href="index.php?page=3">Gestion des factures</a><br/>
-                <a href="index.php?page=4">Gestion des locations</a><br/>
-                <a href="index.php?page=5">Gestion des materiels</a><br/>
-                <a href="index.php?page=6">Gestion des types de matériels</a>
+                <div>
+                    Pages de Gestion : <br/>
+                    <a href="index.php?page=1"> Clients</a><br/>
+                    <a href="index.php?page=2"> Contrats</a><br/>
+                    <a href="index.php?page=3"> Factures</a><br/>
+                    <a href="index.php?page=4"> Locations</a><br/>
+                    <a href="index.php?page=5"> Materiels</a><br/>
+                    <a href="index.php?page=6"> Types de matériels</a>
+                </div>
             ';
         }
         if(isset($_GET['page'])) $page = $_GET['page'];
