@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="style/style.css">
+<link rel="stylesheet" type="text/css" href="style/style/style.css">
 <?php if ($leClient!=null) echo " <h3> Modification d'un client </h3> ";
     else echo " <h3> Ajout d'un client </h3> ";?>
 

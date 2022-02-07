@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="style/style.css">
+<link rel="stylesheet" type="text/css" href="style/style/style.css">
 <?php if ($leTypeMat!=null) echo " <h3> Modification d'un type de matériel </h3> ";
     else echo " <h3> Ajout d'un type de matériel </h3> ";?>
 

@@ -8,10 +8,10 @@
 <!DOCTYPE html>
 <html>
 
-<link rel="stylesheet" type="text/css" href="Style.css">
+<link rel="stylesheet" type="text/css" href="style/style.css">
 
 <head>
-    <title class="titre">Roille SA <?php if($_SESSION!=null) echo"- ".($_SESSION['nom']." ".$_SESSION['prenom']) ?></title>
+    <title>Roille SA <?php if($_SESSION!=null) echo"- ".($_SESSION['nom']." ".$_SESSION['prenom']) ?></title>
 </head>
 <body>
     <h1>Besoin de matériels ? Roille SA est là pour vous accompagner !</h1>
@@ -39,13 +39,13 @@
         ?></center><?php
         if (isset($_SESSION['username'])) {
             echo '
-<link rel="stylesheet" type="text/css" href="Style.css">
+<link rel="stylesheet" type="text/css" href="style/style.css">
 <div class="dropdown">
         <a href="index.php?page=home"><img src="images/home.png" height="50" width="50"></a>
         <a href="index.php?page=exit"><img src="images/deconnexion.png" height="50" width="50"></a><br/>
  <div class="dropdown-child">
 
-<link rel="stylesheet" type="text/css" href="Style.css">
+<link rel="stylesheet" type="text/css" href="style/style.css">
 
 <ul class="menu">
     <li>

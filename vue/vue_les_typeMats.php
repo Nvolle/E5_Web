@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="style/style.css">
+<link rel="stylesheet" type="text/css" href="style/style/style.css">
 <h3>Liste des types de matériels</h3>
 
 <form method="post" action="">
