@@ -2,16 +2,20 @@ drop database if exists roille_sa;
 create database roille_sa;
 use roille_sa;
 
---Tables--
+-- Tables
 create table client(
 	idC int(4) not null auto_increment,
 	nom varchar(25),
+	prenom varchar(50),
 	adresse varchar(30),
 	ville varchar(20),
 	cp varchar(5),
 	societe varchar(30),
 	mail varchar(40),
 	tel varchar(10),
+	username varchar(100),
+    mdp varchar(255),
+    role enum("superadmin","admin","user"),
 	primary key (idC)
 )ENGINE=InnoDB;
 create table contrat(
@@ -51,17 +55,8 @@ create table location(
 	foreign key (idCo) references contrat(idCo),
 	foreign key (idM) references materiel(idM)
 )ENGINE=InnoDB;
-create table user(
-    idU int(3) not null auto_increment,
-    nom varchar(50),
-    prenom varchar(50),
-    username varchar(100),
-    mdp varchar(255),
-    role enum("admin","user"),
-    primary key(idU)
-);
 
---Views--
+-- Views
 create or replace view contrat_client as(
 	select co.idCo, co.datedebut, co.datedefin, co.idC, cl.nom, cl.societe
 	from contrat co
@@ -78,9 +73,12 @@ create or replace view materiel_typeMat as(
 	join typeMat tm on m.idTM=tm.idTM
 );
 
---Inserts--
-insert into client values 	(null, "June", "8 rue du Charpentier", "Paris", "75009", "July", "june@july.com", "0610111213"),
-							(null, "Mars", "4 avenue Foret", "Lille", "59000", "Saturne", "mars@saturne.com", "0710111213");
+-- Inserts
+insert into client values 	(null, "June", "Jane", "8 rue du Charpentier", "Paris", "75009", "July", "june@july.com", "0610111213", "JJ", "KK", "user"),
+							(null, "Mars", "April", "4 avenue Foret", "Lille", "59000", "Saturne", "mars@saturne.com", "0710111213", "MA", "NB", "user"),
+							(null, "Admin", "Saturne", "4 avenue Foret", "Lille", "59000", "Saturne", "admin@saturne.com", "0700000000", "a", "s", "admin"),
+							(null, "Admin", "Null", "IRIS", "Paris", "75000", "Null", "null@news.nll", "0000000000", "a", "1", "superadmin"),
+							(null, "User", "Null", "IRIS", "Paris", "75000", "Null", "null@news.nll", "0000000000", "b", "2", "user");
 insert into contrat values 	(null, "2022-01-17", null, 1),
 							(null, "2022-01-20", null, 2);
 insert into facture values 	(null, 80.00, "2022-01-18", 1),
@@ -93,6 +91,3 @@ insert into materiel values (null, 2, "Pelle", 1),
 							(null, 20, "Planches en bois", 2);
 insert into location values (null, 1, 2),
 							(null, 2, 3);
-insert into user values (null, "Jean", "Denis", "JDenis", "JD", "user"),
-                        (null, "Jeanne", "Dana", "JDana", "JD", "user"),
-						(null, "Admin", "Nicolas", "a", "1", "admin");

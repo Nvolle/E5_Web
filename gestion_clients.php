@@ -1,4 +1,4 @@
-<h2> Gestion des clients </h2>
+<h2> Gestion des comptes client de l'entreprise <?php echo $_SESSION['societe']?></h2>
 
 <?php 
     $unControleur->setTable("client");
@@ -57,7 +57,9 @@
         $like = array("idC", "nom", "adresse", "ville", "cp", "societe", "mail", "tel");
         $lesClients = $unControleur->selectSearch($like, $mot);
     }else {
-        $lesClients = $unControleur->selectAll();
+        $mot = $_SESSION['societe'];
+        $like = array("societe");
+        $lesClients = $unControleur->selectSearch($like, $mot);;
     }
     require_once("vue/vue_les_clients.php");
 ?>

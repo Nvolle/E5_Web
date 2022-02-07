@@ -18,12 +18,15 @@
 <center>
     <?php
         if (!isset($_SESSION['username'])) {
-            require_once("vue/vue_connexion.php");
+            require_once("vue/vue_connexion.html");
+        }
+        if (isset($_POST['SInscrire'])) {
+            require_once("vue/vue_insert_client");
         }
         if (isset($_POST['SeConnecter'])) {
             $username = $_POST['username'];
             $mdp = $_POST['mdp'];
-            $unControleur->setTable("user");
+            $unControleur->setTable("client");
             $where = array("username"=>$username, "mdp"=>$mdp);
             $unUser = $unControleur->selectWhere($where);
             if (isset($unUser['username'])) {
@@ -31,6 +34,7 @@
                 $_SESSION['nom'] = $unUser['nom'];
                 $_SESSION['prenom'] = $unUser['prenom'];
                 $_SESSION['role'] = $unUser['role'];
+                $_SESSION['societe'] = $unUser['societe'];
                 header("Location: index.php?page=home");
             }else {
                 echo "<br/> <p>Erreur d'identifiants</p>";
@@ -40,7 +44,13 @@
             echo '
                 <a href="index.php?page=home"><img src="images/home.png" height="50" width="50"></a>
                 <a href="index.php?page=exit"><img src="images/deconnexion.png" height="50" width="50"></a><br/>
-                <a href="index.php?page=1">Gestion des clients</a><br/>
+            ';
+            if ($_SESSION['role']=="admin") {
+                echo '
+                    <a href="index.php?page=1">Gestion des clients</a><br/>
+                ';
+            }
+            echo '
                 <a href="index.php?page=2">Gestion des contrats</a><br/>
                 <a href="index.php?page=3">Gestion des factures</a><br/>
                 <a href="index.php?page=4">Gestion des locations</a><br/>

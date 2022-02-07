@@ -53,6 +53,7 @@ class Controleur
         $select->execute($donnees);
         return $select->fetchAll();
     }
+
     public function insert($tab)
     {
         $donnees = array();
@@ -66,6 +67,7 @@ class Controleur
         $select = $this->unPdo->prepare($requete);
         $select->execute($donnees);
     }
+    
     public function delete($where)
     {
         $donnees = array();
