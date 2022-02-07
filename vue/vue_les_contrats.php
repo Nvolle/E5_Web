@@ -1,9 +1,11 @@
+<link rel="stylesheet" type="text/css" href="style/style.css">
 <h3>Liste des contrats</h3>
 
 <form method="post" action="">
     Mot de recherche : <input type="text" name="mot">
     <input type="submit" name="Rechercher" value="Rechercher">
 </form>
+<br>
 
 <table border="1">
     <tr>
@@ -37,3 +39,4 @@
         }
     ?>
 </table>
+<br>
