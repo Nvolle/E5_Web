@@ -8,14 +8,14 @@
 <!DOCTYPE html>
 <html>
 
-<link rel="stylesheet" type="text/css" href="style/style.css">
+<link rel="stylesheet" type="text/css" href="Style.css">
 
 <head>
-    <title>Roille SA <?php if($_SESSION!=null) echo"- ".($_SESSION['nom']." ".$_SESSION['prenom']) ?></title>
+    <title class="titre">Roille SA <?php if($_SESSION!=null) echo"- ".($_SESSION['nom']." ".$_SESSION['prenom']) ?></title>
 </head>
 <body>
     <h1>Besoin de matériels ? Roille SA est là pour vous accompagner !</h1>
-<center>
+    <center>
     <?php
         if (!isset($_SESSION['username'])) {
             require_once("vue/vue_connexion.php");
@@ -36,18 +36,43 @@
                 echo "<br/> <p>Erreur d'identifiants</p>";
             }
         }
+        ?></center><?php
         if (isset($_SESSION['username'])) {
             echo '
-                <a href="index.php?page=home"><img src="images/home.png" height="50" width="50"></a>
-                <a href="index.php?page=exit"><img src="images/deconnexion.png" height="50" width="50"></a><br/>
-                <a href="index.php?page=1">Gestion des clients</a><br/>
-                <a href="index.php?page=2">Gestion des contrats</a><br/>
-                <a href="index.php?page=3">Gestion des factures</a><br/>
-                <a href="index.php?page=4">Gestion des locations</a><br/>
-                <a href="index.php?page=5">Gestion des materiels</a><br/>
-                <a href="index.php?page=6">Gestion des types de matériels</a>
+<link rel="stylesheet" type="text/css" href="Style.css">
+<div class="dropdown">
+        <a href="index.php?page=home"><img src="images/home.png" height="50" width="50"></a>
+        <a href="index.php?page=exit"><img src="images/deconnexion.png" height="50" width="50"></a><br/>
+ <div class="dropdown-child">
+
+<link rel="stylesheet" type="text/css" href="Style.css">
+
+<ul class="menu">
+    <li>
+         <a href="index.php?page=1">Gestion des clients</a>
+    </li>
+    <li>
+         <a href="index.php?page=2">Gestion des contrats</a>
+    </li>
+    <li>
+         <a href="index.php?page=3">Gestion des factures</a>
+    </li>
+      <li>
+          <a href="index.php?page=4">Gestion des locations</a>
+    </li>
+    <li>
+         <a href="index.php?page=5">Gestion des materiels</a>
+    </li>
+    <li>
+        <a href="index.php?page=6">Gestion des types de matériels</a>
+    </li>
+</ul>
+
+                 </div>
+ </div>
             ';
         }
+?><center><br><?php
         if(isset($_GET['page'])) $page = $_GET['page'];
         else $page = "home";
         switch ($page) {
