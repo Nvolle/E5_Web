@@ -3,7 +3,7 @@
 <?php 
     $unControleur->setTable("client");
     
-    if (isset($_SESSION['username']) && $_SESSION['role']=="admin") {
+    if (isset($_SESSION['username']) && $_SESSION['role']!="admin") {
         
         $leClient = null;
         if (isset($_GET['action']) and isset($_GET['idC'])) {
@@ -56,10 +56,12 @@
         $mot = $_POST['mot'];
         $like = array("idC", "nom", "adresse", "ville", "cp", "societe", "mail", "tel");
         $lesClients = $unControleur->selectSearch($like, $mot);
-    }else {
+    } elseif ($_SESSION['societe']=='Null') {
+        $lesClients = $unControleur->selectAll();
+    } else {
         $mot = $_SESSION['societe'];
         $like = array("societe");
-        $lesClients = $unControleur->selectSearch($like, $mot);;
+        $lesClients = $unControleur->selectSearch($like, $mot);
     }
     require_once("vue/vue_les_clients.php");
 ?>

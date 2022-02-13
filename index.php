@@ -17,11 +17,13 @@
     <h1>Besoin de matériels ? Roille SA est là pour vous accompagner !</h1>
 <center>
     <?php
-        if (!isset($_SESSION['username'])) {
-            require_once("vue/vue_connexion.html");
-        }
         if (isset($_POST['SInscrire'])) {
-            require_once("vue/vue_insert_client");
+            $unControleur->setTable("client");
+            $leClient = null;
+            require_once("vue/vue_insert_client.php");
+        }
+        elseif (!isset($_SESSION['username'])) {
+            require_once("vue/vue_connexion.html");
         }
         if (isset($_POST['SeConnecter'])) {
             $username = $_POST['username'];
@@ -45,7 +47,7 @@
                 <a href="index.php?page=home"><img src="images/home.png" height="50" width="50"></a>
                 <a href="index.php?page=exit"><img src="images/deconnexion.png" height="50" width="50"></a><br/>
             ';
-            if ($_SESSION['role']=="admin") {
+            if ($_SESSION['role']!="admin") {
                 echo '
                     <a href="index.php?page=1">Gestion des clients</a><br/>
                 ';
