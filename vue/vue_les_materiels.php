@@ -1,9 +1,11 @@
+<link rel="stylesheet" type="text/css" href="style/style/style.css">
 <h3>Liste des matériels</h3>
 
 <form method="post" action="">
     Mot de recherche : <input type="text" name="mot">
     <input type="submit" name="Rechercher" value="Rechercher">
 </form>
+<br>
 
 <table border="1">
     <tr>
@@ -12,6 +14,7 @@
         <td> Nom </td>
         <td> Id du type de matériel </td>
         <td> Désignation </td>
+        <td> Type de matériel </td>
         <?php
             if (isset($_SESSION['username']) && $_SESSION['role']=="admin") {
                 echo "<td> Opérations </td>";
@@ -39,3 +42,4 @@
         }
     ?>
 </table>
+<br>

@@ -45,7 +45,7 @@
             $unControleur->insert($tab);
         }
     }
-    
+
     $unControleur->setTable("contrat_client");
     if (isset($_POST['Rechercher'])) {
         $mot = $_POST['mot'];

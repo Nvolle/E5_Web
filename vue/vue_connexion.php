@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="style/style/style.css">
 <h2> Connectez-vous pour continuer : </h2>
 
 <br/>

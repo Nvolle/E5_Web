@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="style/style/style.css">
 <?php if ($laLocation!=null) echo " <h3> Modification d'une location </h3> ";
     else echo " <h3> Ajout d'une location </h3> ";?>
 
@@ -7,7 +8,7 @@
             <td> Id du contrat </td>
             <td>
                 <select name="idCo">
-                    <?php 
+                    <?php
                         foreach ($lesContrats as $unContrat) {
                             echo "<option value='".$unContrat['idCo']."'>".$unContrat['idCo']."</option>";
                         }
@@ -19,7 +20,7 @@
             <td> Matériel </td>
             <td>
                 <select name="idM">
-                    <?php 
+                    <?php
                         foreach ($lesMateriels as $unMateriel) {
                             echo "<option value='".$unMateriel['idM']."'>".$unMateriel['nomM']."</option>";
                         }

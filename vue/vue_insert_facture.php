@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="style/style/style.css">
 <?php if ($laFacture!=null) echo " <h3> Modification d'une facture </h3> ";
     else echo " <h3> Ajout d'une facture </h3> ";?>
 
@@ -17,7 +18,7 @@
             <td> Id du contrat </td>
             <td>
                 <select name="idCo">
-                    <?php 
+                    <?php
                         foreach ($lesContrats as $unContrat) {
                             echo "<option value='".$unContrat['idCo']."'>".$unContrat['idCo']."</option>";
                         }

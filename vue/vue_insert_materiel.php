@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="style/style/style.css">
 <?php if ($leMateriel!=null) echo " <h3> Modification d'un matériel </h3> ";
     else echo " <h3> Ajout d'un matériel </h3> ";?>
 
@@ -17,7 +18,7 @@
             <td> Type de matériel </td>
             <td>
                 <select name="idTM">
-                    <?php 
+                    <?php
                         foreach ($lesTypeMats as $unTypeMat) {
                             echo "<option value='".$unTypeMat['idTM']."'>".$unTypeMat['designation']."</option>";
                         }

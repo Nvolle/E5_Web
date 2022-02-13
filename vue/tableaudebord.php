@@ -18,6 +18,8 @@
     $nbTypeMat = $unControleur->count();
     ?>
 
+<link rel="stylesheet" type="text/css" href="style/style/style.css">
+
 <table border="1">
     <tr>
         <td>Nombre de Clients</td>

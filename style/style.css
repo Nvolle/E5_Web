@@ -1,0 +1,173 @@
+@keyframes myAnim {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(20px);
+  }
+}
+
+h1
+{
+  font-size: 40px;
+  font-family:Arial, sans-serif;
+  color: #0B2164;
+  background-color: #DBE4FF;
+  padding:16px;
+  font-weight:lighter;
+  -moz-box-shadow: 2px 2px 6px #888;  
+  -webkit-box-shadow: 2px 2px 6px #888;  
+  box-shadow:2px 2px 6px #888;  
+  text-align:center;
+  display:block;
+  margin:20px;
+
+}
+
+h2 {
+
+color: #113DAA;
+font-family:Arial, sans-serif;
+font-size: 30px;
+font-weight: bold;
+animation: myAnim 1s ease 0s 1 normal forwards;
+
+}
+
+h3 {
+
+color: #113DAA;
+font-family:Arial, sans-serif;
+font-size: 30px;
+font-weight: bold;
+animation: myAnim 1s ease 0s 1 normal forwards;
+
+}
+
+div {
+
+animation: myAnim 1s ease 0s 1 normal forwards;
+
+}
+
+p {
+    animation: myAnim 1s ease 0s 1 normal forwards;
+}
+
+input {
+
+background-color: #E5F2FF;
+color: #295bbf;
+font-family:Arial, sans-serif;
+border-radius: 10px;
+border-width: 1px;
+line-height: 30px;
+font-size: 20px;
+border-color: lightgray;
+
+}
+
+form{
+
+color: #295bbf;
+font-family:Arial, sans-serif;
+font-size: 20px;
+font-weight: bold;
+animation: myAnim 1s ease 0s 1 normal forwards;
+
+}
+
+td,
+th {
+    border: 1px solid rgb(190, 190, 190);
+    padding: 10px;
+
+}
+
+td {
+    text-align: center;
+    font-family:Arial, sans-serif;
+
+}
+
+tr:nth-child(even) {
+    background-color: #eee;
+    font-family:Arial, sans-serif;
+
+}
+
+th[scope="col"] {
+    background-color: #696969;
+    color: #fff;
+
+}
+
+th[scope="row"] {
+    background-color: #bddeff;
+
+}
+
+caption {
+    padding: 10px;
+    caption-side: bottom;
+
+}
+
+table {
+    border-collapse: collapse;
+    border: 2px solid rgb(200, 200, 200);
+    letter-spacing: 1px;
+    font-family:Arial,sans-serif;
+    font-size: .8rem;
+    animation: myAnim 1s ease 0s 1 normal forwards;
+}
+
+/*Style des boutons liens*/
+
+.menu {
+    font-family:Arial,sans-serif;
+    line-height: 30px;
+    display: flex;
+    padding:0;
+    background-color: white;
+}
+.menu li {
+    list-style-type: none ;
+}
+.menu a {
+    line-height: 30px;
+    outline-width: 160px;
+    display:block;
+    min-width: 140px;
+}
+
+.menu {
+    display: flex;          
+    padding:0;                 
+    background-color: white;    
+    justify-content: center   
+}
+
+.menu a:hover {
+  background-color: #81ACFF;
+  color: white;
+  border-color: white;
+  font-family:Arial,sans-serif;
+}
+
+.menu a {
+    display:block;   
+    min-width: 200px;        
+    
+    margin: 0.5rem;            
+    padding: 0.4rem 0;         
+    text-align: center;
+    background-color: #6879CF;
+    color: white;
+    text-decoration: none;
+    border: 1px solid #fff;      
+    border-radius: 10px;           
+    transition: all 1s ;
+    font-family:Arial,sans-serif;
+}
