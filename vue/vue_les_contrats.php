@@ -1,4 +1,3 @@
-<link rel="stylesheet" type="text/css" href="style/style.css">
 <h3>Liste des contrats</h3>
 
 <form method="post" action="">
@@ -16,7 +15,7 @@
         <td> Nom du client </td>
         <td> Société du client </td>
         <?php
-            if (isset($_SESSION['username']) && $_SESSION['role']=="admin") {
+            if (isset($_SESSION['username']) && $_SESSION['role']!="user") {
                 echo "<td> Opérations </td>";
             }
         ?>
@@ -31,11 +30,11 @@
                     <td>" . $unContrat['nom'] . "</td>
                     <td>" . $unContrat['societe'] . "</td>
                 ";
-            if (isset($_SESSION['username']) && $_SESSION['role']=="admin") {
+            if (isset($_SESSION['username']) && $_SESSION['role']!="user") {
                 echo "
                 <td>
-                    <a href='index.php?page=2&action=sup&idCo=".$unContrat['idCo']."'><img src = 'images/sup.png' height='40' width='40'></a>
-                    <a href='index.php?page=2&action=edit&idCo=".$unContrat['idCo']."'><img src = 'images/edit.png' height='40' width='40'></a>
+                    <a href='index.php?page=2&action=sup&idCo=".$unContrat['idCo']."'><img src = 'images/icons/sup.png' height='40' width='40'></a>
+                    <a href='index.php?page=2&action=edit&idCo=".$unContrat['idCo']."'><img src = 'images/icons/edit.png' height='40' width='40'></a>
                 </td>
                 ";
             }

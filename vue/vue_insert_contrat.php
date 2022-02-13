@@ -1,4 +1,3 @@
-<link rel="stylesheet" type="text/css" href="style/style.css">
 <?php if ($leContrat!=null) echo " <h3> Modification d'un contrat </h3> ";
     else echo " <h3> Ajout d'un contrat </h3> ";?>
 
@@ -15,10 +14,10 @@
             value="<?php if($leContrat!=null) echo $leContrat['datedefin']; ?>"></td>
         </tr>
         <tr>
-            <td> Id du client </td>
+            <td> Client </td>
             <td>
                 <select name="idC">
-                    <?php
+                    <?php 
                         foreach ($lesClients as $unClient) {
                             echo "<option value='".$unClient['idC']."'>".$unClient['nom']." / Société : ".$unClient['societe']."</option>";
                         }

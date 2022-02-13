@@ -4,8 +4,8 @@
     $unControleur->setTable("client");
     $lesClients = $unControleur->selectAll();
     $unControleur->setTable("contrat");
-    
-    if (isset($_SESSION['username']) && $_SESSION['role']=="admin") {
+
+    if (isset($_SESSION['username']) && $_SESSION['role']!="user") {
         
         $leContrat = null;
         if (isset($_GET['action']) and isset($_GET['idCo'])) {
@@ -49,7 +49,7 @@
     $unControleur->setTable("contrat_client");
     if (isset($_POST['Rechercher'])) {
         $mot = $_POST['mot'];
-        $like = array("idCo", "datedebut", "datedefin", "idC");
+        $like = array("idCo", "datedebut", "datedefin", "idC", "nom", "societe");
         $lesContrats = $unControleur->selectSearch($like, $mot);
     }else {
         $lesContrats = $unControleur->selectAll();

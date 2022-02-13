@@ -7,7 +7,7 @@
     $lesMateriels = $unControleur->selectAll();
     $unControleur->setTable("location");
     
-    if (isset($_SESSION['username']) && $_SESSION['role']=="admin") {
+    if (isset($_SESSION['username']) && $_SESSION['role']!="user") {
         
         $laLocation = null;
         if (isset($_GET['action']) and isset($_GET['idL'])) {

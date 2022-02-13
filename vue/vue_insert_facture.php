@@ -1,11 +1,10 @@
-<link rel="stylesheet" type="text/css" href="style/style.css">
 <?php if ($laFacture!=null) echo " <h3> Modification d'une facture </h3> ";
     else echo " <h3> Ajout d'une facture </h3> ";?>
 
 <form action="" method="post">
     <table>
         <tr>
-            <td> Montant </td>
+            <td> Montant (en €) </td>
             <td><input type="text" name="montant" 
             value="<?php if($laFacture!=null) echo $laFacture['montant']; ?>"></td>
         </tr>

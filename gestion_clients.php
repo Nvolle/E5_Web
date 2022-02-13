@@ -2,8 +2,9 @@
 
 <?php 
     $unControleur->setTable("client");
+    $lesClients = $unControleur->selectAll();
     
-    if (isset($_SESSION['username']) && $_SESSION['role']!="admin") {
+    if (isset($_SESSION['username']) && $_SESSION['role']!="user") {
         
         $leClient = null;
         if (isset($_GET['action']) and isset($_GET['idC'])) {
@@ -26,12 +27,16 @@
         if (isset($_POST["Modifier"])) {
             $tab = array(
                 "nom"=>$_POST['nom'],
+                "prenom"=>$_POST['prenom'],
                 "adresse"=>$_POST['adresse'],
                 "ville"=>$_POST['ville'],
                 "cp"=>$_POST['cp'],
                 "societe"=>$_POST['societe'],
                 "mail"=>$_POST['mail'],
-                "tel"=>$_POST['tel']
+                "tel"=>$_POST['tel'],
+                "username"=>$_POST['username'],
+                "mdp"=>$_POST['mdp'],
+                "role"=>$_POST['role']
             );
             $where = array("idC"=> $_GET['idC']);
             $unControleur->update($tab, $where);
@@ -41,14 +46,20 @@
         if (isset($_POST["Valider"])) {
             $tab = array(
                 "nom"=>$_POST['nom'],
+                "prenom"=>$_POST['prenom'],
                 "adresse"=>$_POST['adresse'],
                 "ville"=>$_POST['ville'],
                 "cp"=>$_POST['cp'],
                 "societe"=>$_POST['societe'],
                 "mail"=>$_POST['mail'],
-                "tel"=>$_POST['tel']
+                "tel"=>$_POST['tel'],
+                "username"=>$_POST['username'],
+                "mdp"=>$_POST['mdp'],
+                "role"=>$_POST['role']
             );
             $unControleur->insert($tab);
+            var_dump($unControleur);
+            var_dump($tab);
         }
     }
 

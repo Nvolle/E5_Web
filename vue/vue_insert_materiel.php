@@ -1,9 +1,13 @@
-<link rel="stylesheet" type="text/css" href="style/style.css">
 <?php if ($leMateriel!=null) echo " <h3> Modification d'un matériel </h3> ";
     else echo " <h3> Ajout d'un matériel </h3> ";?>
 
 <form action="" method="post">
     <table>
+        <tr>
+            <td> Prix unitaire </td>
+            <td><input type="text" name="prixM" 
+            value="<?php if($leMateriel!=null) echo $leMateriel['prixM']; ?>"></td>
+        </tr>
         <tr>
             <td> Quantité </td>
             <td><input type="text" name="qtM" 
@@ -15,7 +19,7 @@
             value="<?php if($leMateriel!=null) echo $leMateriel['nomM']; ?>"></td>
         </tr>
         <tr>
-            <td> Id du type de matériel </td>
+            <td> Type de matériel </td>
             <td>
                 <select name="idTM">
                     <?php

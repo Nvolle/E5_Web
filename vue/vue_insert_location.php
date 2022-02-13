@@ -1,4 +1,3 @@
-<link rel="stylesheet" type="text/css" href="style/style.css">
 <?php if ($laLocation!=null) echo " <h3> Modification d'une location </h3> ";
     else echo " <h3> Ajout d'une location </h3> ";?>
 
@@ -17,7 +16,7 @@
             </td>
         </tr>
         <tr>
-            <td> Id du matériel </td>
+            <td> Matériel </td>
             <td>
                 <select name="idM">
                     <?php
