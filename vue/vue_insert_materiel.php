@@ -15,7 +15,7 @@
             value="<?php if($leMateriel!=null) echo $leMateriel['nomM']; ?>"></td>
         </tr>
         <tr>
-            <td> Id du type de matériel </td>
+            <td> Type de matériel </td>
             <td>
                 <select name="idTM">
                     <?php

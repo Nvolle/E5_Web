@@ -15,10 +15,10 @@
             value="<?php if($leContrat!=null) echo $leContrat['datedefin']; ?>"></td>
         </tr>
         <tr>
-            <td> Id du client </td>
+            <td> Client </td>
             <td>
                 <select name="idC">
-                    <?php
+                    <?php 
                         foreach ($lesClients as $unClient) {
                             echo "<option value='".$unClient['idC']."'>".$unClient['nom']." / Société : ".$unClient['societe']."</option>";
                         }

@@ -17,7 +17,7 @@
             </td>
         </tr>
         <tr>
-            <td> Id du matériel </td>
+            <td> Matériel </td>
             <td>
                 <select name="idM">
                     <?php

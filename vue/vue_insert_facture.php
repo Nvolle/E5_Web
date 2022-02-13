@@ -5,7 +5,7 @@
 <form action="" method="post">
     <table>
         <tr>
-            <td> Montant </td>
+            <td> Montant (en €) </td>
             <td><input type="text" name="montant" 
             value="<?php if($laFacture!=null) echo $laFacture['montant']; ?>"></td>
         </tr>

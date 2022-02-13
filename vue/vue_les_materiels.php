@@ -12,6 +12,8 @@
         <td> Id </td>
         <td> Quantité </td>
         <td> Nom </td>
+        <td> Id du type de matériel </td>
+        <td> Désignation </td>
         <td> Type de matériel </td>
         <?php
             if (isset($_SESSION['username']) && $_SESSION['role']=="admin") {
@@ -25,6 +27,7 @@
             echo "  <td>" . $unMateriel['idM'] . "</td>
                     <td>" . $unMateriel['qtM'] . "</td>
                     <td>" . $unMateriel['nomM'] . "</td>
+                    <td>" . $unMateriel['idTM'] . "</td>
                     <td>" . $unMateriel['designation'] . "</td>
                 ";
             if (isset($_SESSION['username']) && $_SESSION['role']=="admin") {

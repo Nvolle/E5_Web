@@ -39,37 +39,34 @@
         ?></center><?php
         if (isset($_SESSION['username'])) {
             echo '
-<link rel="stylesheet" type="text/css" href="style/style.css">
-<div class="dropdown">
-        <a href="index.php?page=home"><img src="images/home.png" height="50" width="50"></a>
-        <a href="index.php?page=exit"><img src="images/deconnexion.png" height="50" width="50"></a><br/>
- <div class="dropdown-child">
-
-<link rel="stylesheet" type="text/css" href="style/style.css">
-
-<ul class="menu">
-    <li>
-         <a href="index.php?page=1">Gestion des clients</a>
-    </li>
-    <li>
-         <a href="index.php?page=2">Gestion des contrats</a>
-    </li>
-    <li>
-         <a href="index.php?page=3">Gestion des factures</a>
-    </li>
-      <li>
-          <a href="index.php?page=4">Gestion des locations</a>
-    </li>
-    <li>
-         <a href="index.php?page=5">Gestion des materiels</a>
-    </li>
-    <li>
-        <a href="index.php?page=6">Gestion des types de matériels</a>
-    </li>
-</ul>
-
+                <link rel="stylesheet" type="text/css" href="style/style.css">
+                <div class="dropdown">
+                        <a href="index.php?page=home"><img src="images/home.png" height="50" width="50"></a>
+                        <a href="index.php?page=exit"><img src="images/deconnexion.png" height="50" width="50"></a><br/>
+                        <div class="dropdown-child">
+                                <ul class="menu">
+                                    <li> Pages de gestion : </li>
+                                    <li>
+                                         <a href="index.php?page=1">Gestion des clients</a>
+                                    </li>
+                                    <li>
+                                         <a href="index.php?page=2">Gestion des contrats</a>
+                                    </li>
+                                    <li>
+                                         <a href="index.php?page=3">Gestion des factures</a>
+                                    </li>
+                                      <li>
+                                          <a href="index.php?page=4">Gestion des locations</a>
+                                    </li>
+                                    <li>
+                                         <a href="index.php?page=5">Gestion des materiels</a>
+                                    </li>
+                                    <li>
+                                        <a href="index.php?page=6">Gestion des types de matériels</a>
+                                    </li>
+                                </ul>
+                         </div>
                  </div>
- </div>
             ';
         }
 ?><center><br><?php
