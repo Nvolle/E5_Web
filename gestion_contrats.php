@@ -5,7 +5,7 @@
     $lesClients = $unControleur->selectAll();
     $unControleur->setTable("contrat");
 
-    if (isset($_SESSION['username']) && $_SESSION['role']=="admin") {
+    if (isset($_SESSION['username']) && $_SESSION['role']!="user") {
         
         $leContrat = null;
         if (isset($_GET['action']) and isset($_GET['idCo'])) {

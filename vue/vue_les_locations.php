@@ -1,4 +1,3 @@
-<link rel="stylesheet" type="text/css" href="style/style/style.css">
 <h3>Liste des locations</h3>
 
 <form method="post" action="">
@@ -15,7 +14,7 @@
         <td> Quantité </td>
         <td> Nom du matériel </td>
         <?php
-            if (isset($_SESSION['username']) && $_SESSION['role']=="admin") {
+            if (isset($_SESSION['username']) && $_SESSION['role']!="user") {
                 echo "<td> Opérations </td>";
             }
         ?>
@@ -26,14 +25,14 @@
             echo "  <td>" . $uneLocation['idL'] . "</td>
                     <td>" . $uneLocation['idCo'] . "</td>
                     <td>" . $uneLocation['idM'] . "</td>
-                    <td>" . $uneLocation['qtM'] . "</td>
+                    <td>" . $uneLocation['qtStockM'] . "</td>
                     <td>" . $uneLocation['nomM'] . "</td>
                 ";
-            if (isset($_SESSION['username']) && $_SESSION['role']=="admin") {
+            if (isset($_SESSION['username']) && $_SESSION['role']!="user") {
                 echo "
                 <td>
-                    <a href='index.php?page=4&action=sup&idL=".$uneLocation['idL']."'><img src = 'images/sup.png' height='40' width='40'></a>
-                    <a href='index.php?page=4&action=edit&idL=".$uneLocation['idL']."'><img src = 'images/edit.png' height='40' width='40'></a>
+                    <a href='index.php?page=4&action=sup&idL=".$uneLocation['idL']."'><img src = 'images/icons/sup.png' height='40' width='40'></a>
+                    <a href='index.php?page=4&action=edit&idL=".$uneLocation['idL']."'><img src = 'images/icons/edit.png' height='40' width='40'></a>
                 </td>
                 ";
             }

@@ -1,4 +1,3 @@
-<link rel="stylesheet" type="text/css" href="style/style/style.css">
 <?php if ($laFacture!=null) echo " <h3> Modification d'une facture </h3> ";
     else echo " <h3> Ajout d'une facture </h3> ";?>
 

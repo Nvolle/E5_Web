@@ -1,4 +1,3 @@
-<link rel="stylesheet" type="text/css" href="style/style/style.css">
 <?php if ($leContrat!=null) echo " <h3> Modification d'un contrat </h3> ";
     else echo " <h3> Ajout d'un contrat </h3> ";?>
 

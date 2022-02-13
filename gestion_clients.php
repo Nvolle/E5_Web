@@ -1,9 +1,10 @@
-<h2> Gestion des clients </h2>
+<h2> Gestion des comptes client de l'entreprise <?php echo $_SESSION['societe']?></h2>
 
 <?php 
     $unControleur->setTable("client");
+    $lesClients = $unControleur->selectAll();
     
-    if (isset($_SESSION['username']) && $_SESSION['role']=="admin") {
+    if (isset($_SESSION['username']) && $_SESSION['role']!="user") {
         
         $leClient = null;
         if (isset($_GET['action']) and isset($_GET['idC'])) {
@@ -26,12 +27,16 @@
         if (isset($_POST["Modifier"])) {
             $tab = array(
                 "nom"=>$_POST['nom'],
+                "prenom"=>$_POST['prenom'],
                 "adresse"=>$_POST['adresse'],
                 "ville"=>$_POST['ville'],
                 "cp"=>$_POST['cp'],
                 "societe"=>$_POST['societe'],
                 "mail"=>$_POST['mail'],
-                "tel"=>$_POST['tel']
+                "tel"=>$_POST['tel'],
+                "username"=>$_POST['username'],
+                "mdp"=>$_POST['mdp'],
+                "role"=>$_POST['role']
             );
             $where = array("idC"=> $_GET['idC']);
             $unControleur->update($tab, $where);
@@ -41,14 +46,20 @@
         if (isset($_POST["Valider"])) {
             $tab = array(
                 "nom"=>$_POST['nom'],
+                "prenom"=>$_POST['prenom'],
                 "adresse"=>$_POST['adresse'],
                 "ville"=>$_POST['ville'],
                 "cp"=>$_POST['cp'],
                 "societe"=>$_POST['societe'],
                 "mail"=>$_POST['mail'],
-                "tel"=>$_POST['tel']
+                "tel"=>$_POST['tel'],
+                "username"=>$_POST['username'],
+                "mdp"=>$_POST['mdp'],
+                "role"=>$_POST['role']
             );
             $unControleur->insert($tab);
+            var_dump($unControleur);
+            var_dump($tab);
         }
     }
 
@@ -56,8 +67,12 @@
         $mot = $_POST['mot'];
         $like = array("idC", "nom", "adresse", "ville", "cp", "societe", "mail", "tel");
         $lesClients = $unControleur->selectSearch($like, $mot);
-    }else {
+    } elseif ($_SESSION['societe']=='Null') {
         $lesClients = $unControleur->selectAll();
+    } else {
+        $mot = $_SESSION['societe'];
+        $like = array("societe");
+        $lesClients = $unControleur->selectSearch($like, $mot);
     }
     require_once("vue/vue_les_clients.php");
 ?>

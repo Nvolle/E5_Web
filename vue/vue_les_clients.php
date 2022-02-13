@@ -1,4 +1,3 @@
-<link rel="stylesheet" type="text/css" href="style/style/style.css">
 <h3>Liste des clients</h3>
 
 <form method="post" action="">
@@ -18,7 +17,7 @@
         <td> Mail </td>
         <td> Téléphone </td>
         <?php
-            if (isset($_SESSION['username']) && $_SESSION['role']=="admin") {
+            if (isset($_SESSION['username']) && $_SESSION['role']!="user") {
                 echo "<td> Opérations </td>";
             }
         ?>
@@ -35,11 +34,11 @@
                     <td>" . $unClient['mail'] . "</td>
                     <td>" . $unClient['tel'] . "</td>
                 ";
-            if (isset($_SESSION['username']) && $_SESSION['role']=="admin") {
+            if (isset($_SESSION['username']) && $_SESSION['role']!="user") {
                 echo "
                 <td>
-                    <a href='index.php?page=1&action=sup&idC=".$unClient['idC']."'><img src = 'images/sup.png' height='40' width='40'></a>
-                    <a href='index.php?page=1&action=edit&idC=".$unClient['idC']."'><img src = 'images/edit.png' height='40' width='40'></a>
+                    <a href='index.php?page=1&action=sup&idC=".$unClient['idC']."'><img src = 'images/icons/sup.png' height='40' width='40'></a>
+                    <a href='index.php?page=1&action=edit&idC=".$unClient['idC']."'><img src = 'images/icons/edit.png' height='40' width='40'></a>
                 </td>
                 ";
             }

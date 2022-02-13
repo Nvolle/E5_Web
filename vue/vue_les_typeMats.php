@@ -1,4 +1,3 @@
-<link rel="stylesheet" type="text/css" href="style/style/style.css">
 <h3>Liste des types de matériels</h3>
 
 <form method="post" action="">
@@ -12,7 +11,7 @@
         <td> Id </td>
         <td> Désignation </td>
         <?php
-            if (isset($_SESSION['username']) && $_SESSION['role']=="admin") {
+            if (isset($_SESSION['username']) && $_SESSION['role']!="user") {
                 echo "<td> Opérations </td>";
             }
         ?>
@@ -23,11 +22,11 @@
             echo "  <td>" . $unTypeMat['idTM'] . "</td>
                     <td>" . $unTypeMat['designation'] . "</td>
                 ";
-            if (isset($_SESSION['username']) && $_SESSION['role']=="admin") {
+            if (isset($_SESSION['username']) && $_SESSION['role']!="user") {
                 echo "
                 <td>
-                    <a href='index.php?page=6&action=sup&idTM=".$unTypeMat['idTM']."'><img src = 'images/sup.png' height='40' width='40'></a>
-                    <a href='index.php?page=6&action=edit&idTM=".$unTypeMat['idTM']."'><img src = 'images/edit.png' height='40' width='40'></a>
+                    <a href='index.php?page=6&action=sup&idTM=".$unTypeMat['idTM']."'><img src = 'images/icons/sup.png' height='40' width='40'></a>
+                    <a href='index.php?page=6&action=edit&idTM=".$unTypeMat['idTM']."'><img src = 'images/icons/edit.png' height='40' width='40'></a>
                 </td>
                 ";
             }

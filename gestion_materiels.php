@@ -5,7 +5,7 @@
     $lesTypeMats = $unControleur->selectAll();
     $unControleur->setTable("materiel");
     
-    if (isset($_SESSION['username']) && $_SESSION['role']=="admin") {
+    if (isset($_SESSION['username']) && $_SESSION['role']!="user") {
         
         $leMateriel = null;
         if (isset($_GET['action']) and isset($_GET['idM'])) {
@@ -27,7 +27,8 @@
     
         if (isset($_POST["Modifier"])) {
             $tab = array(
-                "qtM"=>$_POST['qtM'],
+                "prixM"=>$_POST['prixM'],
+                "qtStockM"=>$_POST['qtStockM'],
                 "nomM"=>$_POST['nomM'],
                 "idTM"=>$_POST['idTM']
             );
@@ -38,7 +39,8 @@
     
         if (isset($_POST["Valider"])) {
             $tab = array(
-                "qtM"=>$_POST['qtM'],
+                "prixM"=>$_POST['prixM'],
+                "qtStockM"=>$_POST['qtStockM'],
                 "nomM"=>$_POST['nomM'],
                 "idTM"=>$_POST['idTM']
             );

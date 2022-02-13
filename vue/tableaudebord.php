@@ -18,23 +18,30 @@
     $nbTypeMat = $unControleur->count();
     ?>
 
-<link rel="stylesheet" type="text/css" href="style/style/style.css">
 
 <table border="1">
     <tr>
-        <td>Nombre de Clients</td>
-        <td>Nombre de Contrats</td>
-        <td>Nombre de Factures</td>
-        <td>Nombre de Locations</td>
-        <td>Nombre de Matériels</td>
-        <td>Types de Matériaux</td>
+        <th colspan="6">Tableau de bord</td>
     </tr>
-    <tr>
-        <td><?=$nbClient['nb']?></td>
-        <td><?=$nbContrat['nb']?></td>
-        <td><?=$nbFacture['nb']?></td>
-        <td><?=$nbLocation['nb']?></td>
-        <td><?=$nbMateriel['nb']?></td>
-        <td><?=$nbTypeMat['nb']?></td>
-    </tr>
+    <?php if (isset($_SESSION['username']) && $_SESSION['role']=="superadmin") {
+        echo '
+            <tr>
+                <td>Nombre de Clients</td>
+                <td>Nombre de Contrats</td>
+                <td>Nombre de Factures</td>
+                <td>Nombre de Locations</td>
+                <td>Nombre de Matériels</td>
+                <td>Types de Matériaux</td>
+            </tr>
+            <tr>
+                <td>'.$nbClient['nb'].'</td>
+                <td>'.$nbContrat['nb'].'</td>
+                <td>'.$nbFacture['nb'].'</td>
+                <td>'.$nbLocation['nb'].'</td>
+                <td>'.$nbMateriel['nb'].'</td>
+                <td>'.$nbTypeMat['nb'].'</td>
+            </tr>
+        ';
+    }
+    ?>
 </table>

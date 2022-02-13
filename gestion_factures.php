@@ -5,7 +5,7 @@
     $lesContrats = $unControleur->selectAll();
     $unControleur->setTable("facture");
     
-    if (isset($_SESSION['username']) && $_SESSION['role']=="admin") {
+    if (isset($_SESSION['username']) && $_SESSION['role']!="user") {
         
         $laFacture = null;
         if (isset($_GET['action']) and isset($_GET['idF'])) {
@@ -27,7 +27,9 @@
     
         if (isset($_POST["Modifier"])) {
             $tab = array(
-                "montant"=>$_POST['montant'],
+                "montantHT"=>$_POST['montantHT'],
+                "TVA"=>$_POST['TVA'],
+                "montantTTC"=>$_POST['montantTTC'],
                 "dateF"=>$_POST['dateF'],
                 "idCo"=>$_POST['idCo']
             );
@@ -38,7 +40,9 @@
     
         if (isset($_POST["Valider"])) {
             $tab = array(
-                "montant"=>$_POST['montant'],
+                "montantHT"=>$_POST['montantHT'],
+                "TVA"=>$_POST['TVA'],
+                "montantTTC"=>$_POST['montantTTC'],
                 "dateF"=>$_POST['dateF'],
                 "idCo"=>$_POST['idCo']
             );
@@ -48,7 +52,7 @@
 
     if (isset($_POST['Rechercher'])) {
         $mot = $_POST['mot'];
-        $like = array("idF", "montant", "dateF", "idCo");
+        $like = array("idF", "montantHT", "TVA", "montantTTC", "dateF", "idCo");
         $lesFactures = $unControleur->selectSearch($like, $mot);
     }else {
         $lesFactures = $unControleur->selectAll();

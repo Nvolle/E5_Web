@@ -3,7 +3,7 @@
 <?php 
     $unControleur->setTable("typeMat");
     
-    if (isset($_SESSION['username']) && $_SESSION['role']=="admin") {
+    if (isset($_SESSION['username']) && $_SESSION['role']!="user") {
         
         $leTypeMat = null;
         if (isset($_GET['action']) and isset($_GET['idTM'])) {
