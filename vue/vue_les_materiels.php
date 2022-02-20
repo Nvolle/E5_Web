@@ -33,8 +33,8 @@
             if (isset($_SESSION['username']) && $_SESSION['role']!="user") {
                 echo "
                 <td>
-                    <a href='index.php?page=5&action=sup&idM=".$unMateriel['idM']."'><img src = 'images/icons/sup.png' height='40' width='40'></a>
-                    <a href='index.php?page=5&action=edit&idM=".$unMateriel['idM']."'><img src = 'images/icons/edit.png' height='40' width='40'></a>
+                    <a href='index.php?page=admin&tab=materiels&action=sup&idM=".$unMateriel['idM']."'><img src = 'images/icons/sup.png' height='40' width='40'></a>
+                    <a href='index.php?page=admin&tab=materiels&action=edit&idM=".$unMateriel['idM']."'><img src = 'images/icons/edit.png' height='40' width='40'></a>
                 </td>
                 ";
             }

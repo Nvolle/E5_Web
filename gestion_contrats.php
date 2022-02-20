@@ -33,7 +33,7 @@
             );
             $where = array("idCo"=> $_GET['idCo']);
             $unControleur->update($tab, $where);
-            header("Location: index.php?page=2");
+            header("Location: index.php?page=admin&tab=contrats");
         }
     
         if (isset($_POST["Valider"])) {
@@ -55,4 +55,16 @@
         $lesContrats = $unControleur->selectAll();
     }
     require_once("vue/vue_les_contrats.php");
+
+    if (isset($_SESSION['username']) && $_SESSION['role']!="user"){
+        $unControleur->setTable("archiveContrat");
+        if (isset($_POST['RechercherA'])) {
+            $mot = $_POST['mot'];
+            $like = array("idCo", "datedebut", "datedefin", "idC", "nom", "societe");
+            $lesContratsArchives = $unControleur->selectSearch($like, $mot);
+        }else {
+            $lesContratsArchives = $unControleur->selectAll();
+        }
+        require_once("vue/vue_les_contrats_archives.php");
+    }
 ?>

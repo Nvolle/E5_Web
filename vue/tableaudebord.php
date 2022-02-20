@@ -21,7 +21,7 @@
 
 <table border="1">
     <tr>
-        <th colspan="6">Tableau de bord</td>
+        <th colspan="6" scope="col">Tableau de bord</td>
     </tr>
     <?php if (isset($_SESSION['username']) && $_SESSION['role']=="superadmin") {
         echo '
@@ -42,6 +42,15 @@
                 <td>'.$nbTypeMat['nb'].'</td>
             </tr>
         ';
+    } else {
+        echo '
+            <tr>
+                <td>Locations en cours</td>
+            </tr>
+            <tr>
+                <td>'.$nbContrat['nb'].'</td>
+            </tr>
+        ';        
     }
     ?>
 </table>

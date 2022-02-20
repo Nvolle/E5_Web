@@ -34,7 +34,7 @@
             );
             $where = array("idM"=> $_GET['idM']);
             $unControleur->update($tab, $where);
-            header("Location: index.php?page=5");
+            header("Location: index.php?page=admin&tab=materiels");
         }
     
         if (isset($_POST["Valider"])) {

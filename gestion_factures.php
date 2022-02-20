@@ -28,21 +28,21 @@
         if (isset($_POST["Modifier"])) {
             $tab = array(
                 "montantHT"=>$_POST['montantHT'],
-                "TVA"=>$_POST['TVA'],
-                "montantTTC"=>$_POST['montantTTC'],
+                "TVA"=>"",
+                "montantTTC"=>"",
                 "dateF"=>$_POST['dateF'],
                 "idCo"=>$_POST['idCo']
             );
             $where = array("idF"=> $_GET['idF']);
             $unControleur->update($tab, $where);
-            header("Location: index.php?page=3");
+            header("Location: index.php?page=admin&tab=factures");
         }
     
         if (isset($_POST["Valider"])) {
             $tab = array(
                 "montantHT"=>$_POST['montantHT'],
-                "TVA"=>$_POST['TVA'],
-                "montantTTC"=>$_POST['montantTTC'],
+                "TVA"=>"",
+                "montantTTC"=>"",
                 "dateF"=>$_POST['dateF'],
                 "idCo"=>$_POST['idCo']
             );

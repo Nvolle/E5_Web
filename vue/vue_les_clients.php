@@ -37,8 +37,8 @@
             if (isset($_SESSION['username']) && $_SESSION['role']!="user") {
                 echo "
                 <td>
-                    <a href='index.php?page=1&action=sup&idC=".$unClient['idC']."'><img src = 'images/icons/sup.png' height='40' width='40'></a>
-                    <a href='index.php?page=1&action=edit&idC=".$unClient['idC']."'><img src = 'images/icons/edit.png' height='40' width='40'></a>
+                    <a href='index.php?page=admin&tab=clients&action=sup&idC=".$unClient['idC']."'><img src = 'images/icons/sup.png' height='40' width='40'></a>
+                    <a href='index.php?page=admin&tab=clients&action=edit&idC=".$unClient['idC']."'><img src = 'images/icons/edit.png' height='40' width='40'></a>
                 </td>
                 ";
             }

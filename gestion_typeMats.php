@@ -29,7 +29,7 @@
             );
             $where = array("idTM"=> $_GET['idTM']);
             $unControleur->update($tab, $where);
-            header("Location: index.php?page=6");
+            header("Location: index.php?page=admin&tab=typeMats");
         }
     
         if (isset($_POST["Valider"])) {
