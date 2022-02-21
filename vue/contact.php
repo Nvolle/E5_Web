@@ -1,7 +1,7 @@
 <form action="" method="post">
     <table>
         <tr>
-            <th>Formulaire de contact</th>
+            <th scope="col">Formulaire de contact</th>
         </tr>
         <tr>
             <td><input type="text" name="nom" placeholder="Nom"

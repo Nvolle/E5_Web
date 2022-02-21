@@ -4,9 +4,9 @@
 <form action="" method="post">
     <table>
         <tr>
-            <td> Montant (en €) </td>
-            <td><input type="text" name="montant" 
-            value="<?php if($laFacture!=null) echo $laFacture['montant']; ?>"></td>
+            <td> Montant HT (en €) </td>
+            <td><input type="text" name="montantHT" 
+            value="<?php if($laFacture!=null) echo $laFacture['montantHT']; ?>"></td>
         </tr>
         <tr>
             <td> Date </td>

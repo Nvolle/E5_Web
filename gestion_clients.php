@@ -1,4 +1,4 @@
-<h2> Gestion des comptes client de l'entreprise <?php echo $_SESSION['societe']?></h2>
+<h2> Gestion des comptes clients <?php echo $_SESSION['role'] == "superadmin" ? "" : "de l'entreprise ".$_SESSION['societe']?></h2>
 
 <?php 
     $unControleur->setTable("client");
@@ -40,7 +40,7 @@
             );
             $where = array("idC"=> $_GET['idC']);
             $unControleur->update($tab, $where);
-            header("Location: index.php?page=1");
+            header("Location: index.php?page=admin&tab=clients");
         }
     
         if (isset($_POST["Valider"])) {
@@ -58,8 +58,6 @@
                 "role"=>$_POST['role']
             );
             $unControleur->insert($tab);
-            var_dump($unControleur);
-            var_dump($tab);
         }
     }
 

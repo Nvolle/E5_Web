@@ -34,7 +34,7 @@
             );
             $where = array("idL"=> $_GET['idL']);
             $unControleur->update($tab, $where);
-            header("Location: index.php?page=4");
+            header("Location: index.php?page=admin/locations");
         }
     
         if (isset($_POST["Valider"])) {

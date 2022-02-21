@@ -1,20 +1,20 @@
 <div>
     <ul class="menu">
-        <?php if ($_SESSION['role']!="user") echo '<li> <a href="index.php?page=1">Gestion des clients</a> </li>'?>
+        <?php if ($_SESSION['role']!="user") echo '<li> <a href="index.php?page=admin&tab=clients">Gestion des clients</a> </li>'?>
         <li>
-            <a href="index.php?page=2">Gestion des contrats</a>
+            <a href="index.php?page=admin&tab=contrats">Gestion des contrats</a>
         </li>
         <li>
-            <a href="index.php?page=3">Gestion des factures</a>
+            <a href="index.php?page=admin&tab=factures">Gestion des factures</a>
         </li>
             <li>
-            <a href="index.php?page=4">Gestion des locations</a>
+            <a href="index.php?page=admin&tab=locations">Gestion des locations</a>
         </li>
         <li>
-            <a href="index.php?page=5">Gestion des materiels</a>
+            <a href="index.php?page=admin&tab=materiels">Gestion des materiels</a>
         </li>
         <li>
-            <a href="index.php?page=6">Gestion des types de matériels</a>
+            <a href="index.php?page=admin&tab=typeMats">Gestion des types de matériels</a>
         </li>
     </ul>
 </div>
