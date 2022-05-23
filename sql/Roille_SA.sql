@@ -128,14 +128,30 @@ create event suppCon
 on schedule every 1 minute
 do delete from contrat where etat = 'terminee';
 
-delimiter //
-create or replace procedure reserver (in idClient, in idContrat, in idMateriel, in nbMateriel)
-begin
-    insert into 
-end //
-delimiter ;
+/* Drop trigger if exists reserver;
+CREATE TRIGGER reserver AFTER INSERT ON location
+FOR EACH ROW
+	UPDATE materiel m
+	SET m.qtStockM = m.qtStockM - new.qtM 
+	WHERE m.idM = new.idM;
 
-create or replace procedure finReserver (in )
+Drop trigger if exists reserverF;
+CREATE TRIGGER reserverF AFTER DELETE ON location
+FOR EACH ROW
+	UPDATE materiel m
+	SET m.qtStockM = m.qtStockM + old.qtM 
+	WHERE m.idM = old.idM;
+ */
+/* delimiter //
+create or replace procedure reserver (in r_idClient, in r_idContrat, in r_idMateriel, in r_nbMateriel)
+declare r_dateD date;
+begin
+	set r_dateD =
+    insert into contrat (datedebut, etat, idC) values (r_dateD, "en_cours", r_idClient)
+end //
+delimiter ; 
+
+create or replace procedure finReserver (in )*/
 
 -- TODO : Créer une procédure pour créer les utilisateurs
 /* delimiter //

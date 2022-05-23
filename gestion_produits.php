@@ -2,16 +2,17 @@
     $unControleur->setTable("materiel");
     $where = array("idM"=>$_GET['id']);
     $lesProduits = $unControleur->selectWhere($where);
-    /* if (isset($_POST["Reserver"])) {
-        $unControleur->setTable("contrat");
+    
+    if (isset($_POST["Reserver"])) {
+        $unControleur->setTable("location");
         $tab = array(
-            "datedebut"=>curdate(),
-            "qtC"=>$_POST['qtM'],
-            "idC"=>$_SESSION['idC']
-            "idM"=>$_GET['id'],
+            "idCo"=>"99",
+            "idM"=>$lesProduits['idM'],
+            "qtM"=>$_POST['qtM']
         );
         $unControleur->insert($tab);
-    } */
+    }
+    require_once("vue/vue_les_produits.php");
 ?>
 <img src="images\products\<?php echo $lesProduits['nomM'] ?>.jpg" height="400" width="400" alt="<?php echo $page ?>">
 <div>

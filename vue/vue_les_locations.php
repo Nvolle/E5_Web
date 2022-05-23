@@ -25,7 +25,7 @@
             echo "  <td>" . $uneLocation['idL'] . "</td>
                     <td>" . $uneLocation['idCo'] . "</td>
                     <td>" . $uneLocation['idM'] . "</td>
-                    <td>" . $uneLocation['qtStockM'] . "</td>
+                    <td>" . $uneLocation['qtM'] . "</td>
                     <td>" . $uneLocation['nomM'] . "</td>
                 ";
             if (isset($_SESSION['username']) && $_SESSION['role']!="user") {
