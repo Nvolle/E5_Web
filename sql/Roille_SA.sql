@@ -55,6 +55,7 @@ create table location(
 	idL int(5) not null auto_increment,
 	idCo int(5) not null,
 	idM int(5) not null,
+	qtM int(5) not null,
 	primary key (idL),
 	foreign key (idCo) references contrat(idCo),
 	foreign key (idM) references materiel(idM)
@@ -76,7 +77,7 @@ create or replace view contrat_client as(
 	join client cl on co.idC=cl.idC
 );
 create or replace view location_materiel as(
-	select l.idL, l.idCo, l.idM, m.qtStockM, m.nomM
+	select l.idL, l.idCo, l.idM, l.qtM, m.nomM
 	from location l
 	join materiel m on m.idM=l.idM
 );
@@ -93,10 +94,8 @@ create trigger MontantUp
 	before update on facture
 		for each row
 		begin
-			declare montantHT int;
-			set montantHT = (select montantHT from facture);
-			set new.TVA = montantHT * 0.20;
-			set new.montantTTC = montantHT + new.TVA;
+			set new.TVA = new.montantHT * 0.20;
+			set new.montantTTC = new.montantHT + new.TVA;
 		end //
 delimiter ;
 
@@ -106,10 +105,8 @@ create trigger MontantIns
 	before insert on facture
 		for each row
 		begin
-			declare montantHT int;
-			set montantHT = (select montantHT from facture);
-			set new.TVA = montantHT * 0.20;
-			set new.montantTTC = montantHT + new.TVA;
+			set new.TVA = new.montantHT * 0.20;
+			set new.montantTTC = new.montantHT + new.TVA;
 		end //
 delimiter ;
 
@@ -131,6 +128,40 @@ create event suppCon
 on schedule every 1 minute
 do delete from contrat where etat = 'terminee';
 
+/* Drop trigger if exists reserver;
+CREATE TRIGGER reserver AFTER INSERT ON location
+FOR EACH ROW
+	UPDATE materiel m
+	SET m.qtStockM = m.qtStockM - new.qtM 
+	WHERE m.idM = new.idM;
+
+Drop trigger if exists reserverF;
+CREATE TRIGGER reserverF AFTER DELETE ON location
+FOR EACH ROW
+	UPDATE materiel m
+	SET m.qtStockM = m.qtStockM + old.qtM 
+	WHERE m.idM = old.idM;
+ */
+/* delimiter //
+create or replace procedure reserver (in r_idClient, in r_idContrat, in r_idMateriel, in r_nbMateriel)
+declare r_dateD date;
+begin
+	set r_dateD =
+    insert into contrat (datedebut, etat, idC) values (r_dateD, "en_cours", r_idClient)
+end //
+delimiter ; 
+
+create or replace procedure finReserver (in )*/
+
+-- TODO : Créer une procédure pour créer les utilisateurs
+/* delimiter //
+create procedure  gest_user(nom varchar(60),hoste varchar(60),passwd varchar(250))
+	begin
+	insert into user(host,user,password) values (hoste,nom,passwd);
+	-- create user `nom`@`hoste` identified by 'passwd' ;
+	end //
+delimiter ; */
+
 -- Inserts
 insert into client values 	(null, "June", "Jane", "8 rue du Charpentier", "Paris", "75009", "July", "june@july.com", "0610111213", "JJ", "KK", "user"),
 							(null, "Mars", "April", "4 avenue Foret", "Lille", "59000", "Saturne", "mars@saturne.com", "0710111213", "MA", "NB", "user"),
@@ -148,5 +179,5 @@ insert into materiel values (null, 30, 2, "Pelle", 1),
 							(null, 25, 3, "Marteau", 1),
 							(null, 9, 5, "Sac de ciment", 2),
 							(null, 5, 20, "Planches en bois", 2);
-insert into location values (null, 1, 2),
-							(null, 2, 3);
+insert into location values (null, 1, 2, 1),
+							(null, 2, 3, 1);

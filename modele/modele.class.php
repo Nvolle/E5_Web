@@ -110,5 +110,12 @@ class Controleur
         $count->execute();
         return $count->fetch();
     }
+
+    public function callProcedure($procedure)
+    {
+        $requete = 'CALL '.$procedure.'()';
+        $call = $this->unPdo->prepare($requete);
+        $call->execute();
+    }
 }
 ?>
