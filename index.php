@@ -16,7 +16,6 @@
         <center>
             <div class="main">
                 <?php
-                    
                     if (isset($_SESSION['username'])) {
                         echo '
                             <div>

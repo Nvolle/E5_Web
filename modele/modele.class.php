@@ -98,7 +98,6 @@ class Controleur
         }
         $chaineWhere = implode (" and ", $champs2);
         $requete = "update ".$this->uneTable." set ".$chaineChamps." where ".$chaineWhere.";";
-        echo $requete;
         $update = $this->unPdo->prepare($requete);
         $update->execute($donnees);
     }
@@ -111,11 +110,12 @@ class Controleur
         return $count->fetch();
     }
 
-    public function callProcedure($procedure)
+    public function selectMax($where)
     {
-        $requete = 'CALL '.$procedure.'()';
-        $call = $this->unPdo->prepare($requete);
-        $call->execute();
+        $requete = "select max(".$where.") from " . $this->uneTable . ";";
+        $select = $this->unPdo->prepare($requete);
+        $select->execute();
+        return $select->fetch();
     }
 }
 ?>

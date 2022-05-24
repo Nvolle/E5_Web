@@ -39,8 +39,8 @@
             return $this->unModele->count();
         }
 
-        public function callProcedure($procedure){
-            return $this->unModele->callProcedure($procedure);
+        public function selectMax($where){
+            return $this->unModele->selectMax($where);
         }
     }
 ?>
